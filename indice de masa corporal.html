@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	function saltarLinea() {
+
+		document.write("<br>");	
+		document.write("<br>");	
+		document.write("<br>");	
+
+	}  
+
+	function imprimir(frase) {
+
+		document.write(frase);
+		saltarLinea();
+
+	}
+
+	function calcularIMC(peso, altura) 
+	{
+
+		imcLalo = peso / (altura * altura);
+		imprimir("el IMC calculado es: " + imcLalo);
+
+	}
+
+	var pesoLalo = 110
+	var alturaLalo = 1.80
+	
+	var imcLalo = calcularIMC(pesoLalo, alturaLalo);
+
+	
+	if (imcLalo < 18.4) {
+		imprimir("IMC por debajo de los valores normales");
+	}
+
+	if (imcLalo > 25) {
+		imprimir("IMC por encima de los valores normales");
+	}
+
+	if (imcLalo > 18.5) {
+		if (imcLalo < 24.9)
+		imprimir("IMC por debajo de los valores normales");
+	}
+	
+</script>
+</body>
+</html>

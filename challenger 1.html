@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encriptador de texto</title>
+  <link rel="stylesheet" href="diseño.css">
+</head>
+<body>
+  <h1 class="titulo" id="titulo-principal">Mensaje secreto</h1>
+  <main class="main">
+    <section class="form box">
+      <form action="">
+        <label for="input-texto">Solo letras minúsculas, sin acento</label>
+        <input class="text-input" type="text" name="input-texto" onkeypress="return soloMinusculas(event)" id="input-texto" placeholder="Ingrese el texto aqui">
+        <input class="btn" type="button" value="encriptar!" id="btn-encriptar">
+        <input class="btn" type="button" value="desencriptar!" id="btn-desencriptar">
+      </form>
+    </section>
+  
+    <section class="msg box">
+      <h2 id="">Mensaje encriptada:</h2>
+      <input class="text-input-salida" type="text" id="msg">
+      <input class="btn" type="button" value="copiar" id="btn-copy">
+    </section>
+  </main>
+    <script>function encriptar (){
+    var texto = document.querySelector("#input-texto").value;
+
+    let textoCifrado = "";
+
+        for (var i = 0; i < texto.length; i++) {
+         
+            if (texto[i] == "e") {
+                textoCifrado = textoCifrado + "enter";
+            } else if (texto[i] == "i") {
+                textoCifrado = textoCifrado + "imes";
+            } else if (texto[i] == "a") {
+                textoCifrado = textoCifrado + "ai";
+            } else if (texto[i] == "o") {
+                textoCifrado = textoCifrado + "ober";
+            } else if (texto[i] == "u") {
+                textoCifrado = textoCifrado + "ufat";
+            }else {
+                textoCifrado = textoCifrado + texto[i];
+            }
+            document.querySelector(".text-input-salida").value = textoCifrado;
+            
+        }    
+
+    
+    document.querySelector("#input-texto").value;
+}
+
+var boton1 = document.querySelector("#btn-encriptar");
+boton1.onclick = encriptar;
+
+
+function desencriptar (){
+    var texto = document.querySelector("#input-texto").value;
+    var textoCifrado = texto.replace(/enter/gi, "e").replace(/imes/gi, "i").replace(/ai/gi, "a").replace(/ober/gi, "o").replace(/ufat/gi, "u");
+    document.querySelector(".text-input-salida").value = textoCifrado;
+    document.querySelector("#input-texto").value;
+
+}
+
+var boton2 = document.querySelector("#btn-desencriptar");
+boton2.onclick = desencriptar;
+    </script>
+  <script src="Copiar-pegar.js"></script>
+</body>
+</html>
